@@ -1,15 +1,17 @@
 import type { GearOptions } from "../types/gearOptions";
 
-interface GearQuestions {
+interface Choice {
+    gearOption: keyof GearOptions;
     label: string;
-    choices: {
-        gearOption: keyof GearOptions;
-        label: string;
-        value: string;
-    }[]
+    value: string;
 }
 
-const GEAR_QUESTIONS: GearQuestions[] = [
+export interface GearQuestion {
+    label: string;
+    choices: Choice[]
+}
+
+const GEAR_QUESTIONS: GearQuestion[] = [
     {
         label: 'Where is the Air tank attached?',
         choices: [
